@@ -1,6 +1,10 @@
+import { Link } from 'react-router-dom';
+import { useTheme } from '../context/ThemeContext';
+
 export default function Homepage() {
+  const { dark, toggle } = useTheme();
   return (
-    <div className="bg-background-light font-display text-slate-900 min-h-screen">
+    <div className="bg-background-light dark:bg-background-dark font-display text-slate-900 dark:text-slate-100 min-h-screen">
       {/* ─────────── HEADER ─────────── */}
       <header className="flex items-center justify-between whitespace-nowrap border-b border-solid border-slate-200 px-6 md:px-20 py-4 bg-background-light/80 backdrop-blur-md sticky top-0 z-50">
         <div className="flex items-center gap-3 text-primary">
@@ -16,12 +20,15 @@ export default function Homepage() {
             <a className="text-slate-600 hover:text-primary text-sm font-medium transition-colors" href="#benefits">Benefits</a>
             <a className="text-slate-600 hover:text-primary text-sm font-medium transition-colors" href="#safety">Safety</a>
           </nav>
-          <div className="flex gap-3">
-            <button className="flex min-w-[84px] cursor-pointer items-center justify-center rounded-xl h-10 px-5 bg-primary/10 text-primary hover:bg-primary/20 text-sm font-bold transition-all">
+          <div className="flex gap-3 items-center">
+            <Link to="/login" className="flex min-w-[84px] cursor-pointer items-center justify-center rounded-xl h-10 px-5 bg-primary/10 text-primary hover:bg-primary/20 text-sm font-bold transition-all">
               Log In
-            </button>
-            <button className="flex min-w-[84px] cursor-pointer items-center justify-center rounded-xl h-10 px-5 bg-primary text-white hover:bg-primary/90 text-sm font-bold shadow-lg shadow-primary/20 transition-all">
+            </Link>
+            <Link to="/login" className="flex min-w-[84px] cursor-pointer items-center justify-center rounded-xl h-10 px-5 bg-primary text-white hover:bg-primary/90 text-sm font-bold shadow-lg shadow-primary/20 transition-all">
               Sign Up
+            </Link>
+            <button onClick={toggle} className="p-2 rounded-full hover:bg-slate-100 dark:hover:bg-slate-800 cursor-pointer transition-colors" title="Toggle theme">
+              <span className="material-symbols-outlined">{dark ? 'light_mode' : 'dark_mode'}</span>
             </button>
           </div>
         </div>
