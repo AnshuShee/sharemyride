@@ -69,9 +69,9 @@ export default function PostRide() {
   return (
     <div className="min-h-screen bg-background-light dark:bg-background-dark font-display text-slate-900 dark:text-slate-100">
       {/* Header */}
-      <header className="bg-white dark:bg-surface-dark border-b border-slate-200 dark:border-slate-700 px-6 md:px-20 py-4 flex items-center justify-between sticky top-0 z-50">
+      <header className="flex items-center justify-between whitespace-nowrap border-b border-solid border-slate-200 px-6 md:px-20 py-4 bg-background-light/80 backdrop-blur-md sticky top-0 z-50">
         <Link to="/" className="flex items-center gap-2 text-primary">
-          <div className="w-8 h-8 bg-primary rounded-lg flex items-center justify-center text-white">
+          <div className="w-8 h-8 flex items-center justify-center bg-primary rounded-lg text-white">
             <span className="material-symbols-outlined">directions_car</span>
           </div>
           <h2 className="text-xl font-bold tracking-tight text-slate-900 dark:text-white">ShareMyRide</h2>
@@ -93,9 +93,10 @@ export default function PostRide() {
 
         {serverError && <div className="mb-6 p-4 bg-red-50 dark:bg-red-900/20 border border-red-200 dark:border-red-800 rounded-xl text-red-600 dark:text-red-400 text-sm">{serverError}</div>}
 
-        <form onSubmit={handleSubmit} className="space-y-10">
-          {/* 1. Journey Details */}
-          <section>
+        <div className="bg-white dark:bg-surface-dark shadow-2xl border border-slate-100 dark:border-slate-800 rounded-3xl p-8 sm:p-10">
+          <form onSubmit={handleSubmit} className="space-y-10">
+            {/* 1. Journey Details */}
+            <section>
             <div className="flex items-center gap-3 mb-5">
               <div className="w-8 h-8 bg-primary rounded-full flex items-center justify-center text-white text-sm font-bold">1</div>
               <h2 className="text-xl font-black">Journey Details</h2>
@@ -106,7 +107,7 @@ export default function PostRide() {
                 <div className="relative">
                   <span className="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-slate-400 text-lg">my_location</span>
                   <input ref={sourceRef} value={form.source} onChange={e => handleChange('source', e.target.value)}
-                    className={`w-full pl-10 pr-4 py-3 rounded-xl border ${errors.source ? 'border-red-400' : 'border-slate-200 dark:border-slate-700'} bg-white dark:bg-slate-800 focus:ring-2 focus:ring-primary focus:border-transparent text-sm`}
+                    className={`w-full pl-10 pr-4 py-3 rounded-xl border ${errors.source ? 'border-red-400' : 'border-slate-200 dark:border-slate-700'} bg-slate-50 dark:bg-slate-800 focus:ring-2 focus:ring-primary focus:border-transparent text-sm`}
                     placeholder="Enter pickup location" />
                 </div>
                 {errors.source && <p className="text-red-500 text-xs mt-1">{errors.source}</p>}
@@ -116,7 +117,7 @@ export default function PostRide() {
                 <div className="relative">
                   <span className="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-slate-400 text-lg">location_on</span>
                   <input value={form.destination} onChange={e => handleChange('destination', e.target.value)}
-                    className={`w-full pl-10 pr-4 py-3 rounded-xl border ${errors.destination ? 'border-red-400' : 'border-slate-200 dark:border-slate-700'} bg-white dark:bg-slate-800 focus:ring-2 focus:ring-primary focus:border-transparent text-sm`}
+                    className={`w-full pl-10 pr-4 py-3 rounded-xl border ${errors.destination ? 'border-red-400' : 'border-slate-200 dark:border-slate-700'} bg-slate-50 dark:bg-slate-800 focus:ring-2 focus:ring-primary focus:border-transparent text-sm`}
                     placeholder="Enter drop-off location" />
                 </div>
                 {errors.destination && <p className="text-red-500 text-xs mt-1">{errors.destination}</p>}
@@ -126,7 +127,7 @@ export default function PostRide() {
                 <div className="relative">
                   <span className="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-slate-400 text-lg">calendar_today</span>
                   <input type="date" value={form.date} onChange={e => handleChange('date', e.target.value)}
-                    className={`w-full pl-10 pr-4 py-3 rounded-xl border ${errors.date ? 'border-red-400' : 'border-slate-200 dark:border-slate-700'} bg-white dark:bg-slate-800 focus:ring-2 focus:ring-primary focus:border-transparent text-sm`} />
+                    className={`w-full pl-10 pr-4 py-3 rounded-xl border ${errors.date ? 'border-red-400' : 'border-slate-200 dark:border-slate-700'} bg-slate-50 dark:bg-slate-800 focus:ring-2 focus:ring-primary focus:border-transparent text-sm`} />
                 </div>
                 {errors.date && <p className="text-red-500 text-xs mt-1">{errors.date}</p>}
               </div>
@@ -135,7 +136,7 @@ export default function PostRide() {
                 <div className="relative">
                   <span className="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-slate-400 text-lg">schedule</span>
                   <input type="time" value={form.time} onChange={e => handleChange('time', e.target.value)}
-                    className={`w-full pl-10 pr-4 py-3 rounded-xl border ${errors.time ? 'border-red-400' : 'border-slate-200 dark:border-slate-700'} bg-white dark:bg-slate-800 focus:ring-2 focus:ring-primary focus:border-transparent text-sm`} />
+                    className={`w-full pl-10 pr-4 py-3 rounded-xl border ${errors.time ? 'border-red-400' : 'border-slate-200 dark:border-slate-700'} bg-slate-50 dark:bg-slate-800 focus:ring-2 focus:ring-primary focus:border-transparent text-sm`} />
                 </div>
                 {errors.time && <p className="text-red-500 text-xs mt-1">{errors.time}</p>}
               </div>
@@ -154,7 +155,7 @@ export default function PostRide() {
                 <div className="relative">
                   <span className="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-slate-400 text-lg">groups</span>
                   <select value={form.seats} onChange={e => handleChange('seats', e.target.value)}
-                    className="w-full pl-10 pr-4 py-3 rounded-xl border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-800 text-sm appearance-none cursor-pointer">
+                    className="w-full pl-10 pr-4 py-3 rounded-xl border border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-800 focus:ring-2 focus:ring-primary focus:border-transparent text-sm appearance-none cursor-pointer">
                     {[1,2,3,4,5,6,7,8].map(n => <option key={n} value={n}>{n} Seat{n > 1 ? 's' : ''}</option>)}
                   </select>
                 </div>
@@ -164,7 +165,7 @@ export default function PostRide() {
                 <div className="relative">
                   <span className="absolute left-3 top-1/2 -translate-y-1/2 text-slate-400 text-lg font-bold">₹</span>
                   <input type="number" min="0" value={form.cost} onChange={e => handleChange('cost', e.target.value)}
-                    className={`w-full pl-10 pr-4 py-3 rounded-xl border ${errors.cost ? 'border-red-400' : 'border-slate-200 dark:border-slate-700'} bg-white dark:bg-slate-800 focus:ring-2 focus:ring-primary focus:border-transparent text-sm`}
+                    className={`w-full pl-10 pr-4 py-3 rounded-xl border ${errors.cost ? 'border-red-400' : 'border-slate-200 dark:border-slate-700'} bg-slate-50 dark:bg-slate-800 focus:ring-2 focus:ring-primary focus:border-transparent text-sm`}
                     placeholder="Enter amount" />
                 </div>
                 {errors.cost && <p className="text-red-500 text-xs mt-1">{errors.cost}</p>}
@@ -184,7 +185,7 @@ export default function PostRide() {
                 <div className="relative">
                   <span className="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-slate-400 text-lg">directions_car</span>
                   <input value={form.vehicleModel} onChange={e => handleChange('vehicleModel', e.target.value)}
-                    className="w-full pl-10 pr-4 py-3 rounded-xl border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-800 text-sm" placeholder="e.g. Honda City" />
+                    className="w-full pl-10 pr-4 py-3 rounded-xl border border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-800 focus:ring-2 focus:ring-primary focus:border-transparent text-sm" placeholder="e.g. Honda City" />
                 </div>
               </div>
               <div>
@@ -192,7 +193,7 @@ export default function PostRide() {
                 <div className="relative">
                   <span className="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-slate-400 text-lg">palette</span>
                   <input value={form.vehicleColor} onChange={e => handleChange('vehicleColor', e.target.value)}
-                    className="w-full pl-10 pr-4 py-3 rounded-xl border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-800 text-sm" placeholder="e.g. Silver Metallic" />
+                    className="w-full pl-10 pr-4 py-3 rounded-xl border border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-800 focus:ring-2 focus:ring-primary focus:border-transparent text-sm" placeholder="e.g. Silver Metallic" />
                 </div>
               </div>
             </div>
@@ -210,7 +211,7 @@ export default function PostRide() {
                 { key: 'music', label: 'Music Allowed', icon: 'music_note' },
                 { key: 'pets', label: 'Pets Welcome', icon: 'pets' },
               ].map(pref => (
-                <label key={pref.key} className={`flex items-center gap-2 p-4 rounded-xl border cursor-pointer transition-all ${form[pref.key] ? 'border-primary bg-primary/5' : 'border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-800'}`}>
+                <label key={pref.key} className={`flex items-center gap-2 p-4 rounded-xl border cursor-pointer transition-all ${form[pref.key] ? 'border-primary bg-primary/5' : 'border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-800'}`}>
                   <input type="checkbox" checked={form[pref.key]} onChange={e => handleChange(pref.key, e.target.checked)}
                     className="h-4 w-4 text-primary focus:ring-primary border-slate-300 rounded" />
                   <span className="material-symbols-outlined text-lg text-slate-500">{pref.icon}</span>
@@ -222,13 +223,14 @@ export default function PostRide() {
 
           <hr className="border-slate-200 dark:border-slate-700" />
 
-          <button type="submit" disabled={submitting}
-            className="flex items-center gap-2 bg-primary text-white px-8 py-3.5 rounded-xl font-bold text-lg hover:bg-primary/90 transition-all disabled:opacity-60 cursor-pointer">
-            <span className="material-symbols-outlined">flight_takeoff</span>
-            {submitting ? 'Publishing...' : 'Publish Ride'}
-          </button>
-          <p className="text-xs text-slate-400">By publishing, you agree to our <a href="#" className="text-primary hover:underline">Terms of Service</a> and <a href="#" className="text-primary hover:underline">Safety Guidelines</a>.</p>
-        </form>
+            <button type="submit" disabled={submitting}
+              className="flex items-center justify-center gap-2 w-full bg-primary text-white px-8 py-4 rounded-xl font-bold text-lg shadow-lg shadow-primary/20 hover:bg-primary/90 transition-all disabled:opacity-60 cursor-pointer">
+              <span className="material-symbols-outlined">flight_takeoff</span>
+              {submitting ? 'Publishing...' : 'Publish Ride'}
+            </button>
+            <p className="text-xs text-slate-400 text-center">By publishing, you agree to our <a href="#" className="text-primary hover:underline">Terms of Service</a> and <a href="#" className="text-primary hover:underline">Safety Guidelines</a>.</p>
+          </form>
+        </div>
       </main>
 
       <footer className="border-t border-slate-200 dark:border-slate-700 py-6 px-6 md:px-20 mt-8">

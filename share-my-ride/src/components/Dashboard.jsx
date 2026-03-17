@@ -29,9 +29,9 @@ export default function Dashboard() {
   return (
     <div className="min-h-screen bg-background-light dark:bg-background-dark font-display text-slate-900 dark:text-slate-100">
       {/* Header */}
-      <header className="bg-white dark:bg-surface-dark border-b border-slate-200 dark:border-slate-700 px-6 md:px-20 py-4 flex items-center justify-between sticky top-0 z-50">
+      <header className="flex items-center justify-between whitespace-nowrap border-b border-solid border-slate-200 px-6 md:px-20 py-4 bg-background-light/80 backdrop-blur-md sticky top-0 z-50">
         <Link to="/" className="flex items-center gap-2 text-primary">
-          <div className="w-8 h-8 bg-primary rounded-lg flex items-center justify-center text-white">
+          <div className="w-8 h-8 flex items-center justify-center bg-primary rounded-lg text-white">
             <span className="material-symbols-outlined">directions_car</span>
           </div>
           <h2 className="text-xl font-bold tracking-tight text-slate-900 dark:text-white">ShareMyRide</h2>
@@ -71,7 +71,7 @@ export default function Dashboard() {
 
         {/* Stats Cards */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-10">
-          <div className="bg-white dark:bg-surface-dark border border-slate-200 dark:border-slate-700 rounded-2xl p-6">
+          <div className="bg-white dark:bg-surface-dark border border-slate-100 dark:border-slate-800 shadow-xl rounded-2xl p-6">
             <div className="flex items-center gap-2 mb-3">
               <div className="w-8 h-8 bg-green-100 dark:bg-green-900/30 rounded-lg flex items-center justify-center">
                 <span className="material-symbols-outlined text-green-600 text-lg">account_balance_wallet</span>
@@ -81,7 +81,7 @@ export default function Dashboard() {
             <p className="text-3xl font-black">₹{(user?.balance || 1250).toLocaleString('en-IN', { minimumFractionDigits: 2 })}</p>
             <p className="text-xs text-green-600 mt-1 font-bold">↗ +12% from last week</p>
           </div>
-          <div className="bg-white dark:bg-surface-dark border border-slate-200 dark:border-slate-700 rounded-2xl p-6">
+          <div className="bg-white dark:bg-surface-dark border border-slate-100 dark:border-slate-800 shadow-xl rounded-2xl p-6">
             <div className="flex items-center gap-2 mb-3">
               <div className="w-8 h-8 bg-primary/10 rounded-lg flex items-center justify-center">
                 <span className="material-symbols-outlined text-primary text-lg">savings</span>
@@ -91,7 +91,7 @@ export default function Dashboard() {
             <p className="text-3xl font-black">₹{(user?.lifetimeSavings || 4500).toLocaleString('en-IN', { minimumFractionDigits: 2 })}</p>
             <p className="text-xs text-slate-400 mt-1">Saved by carpooling</p>
           </div>
-          <div className="bg-white dark:bg-surface-dark border border-slate-200 dark:border-slate-700 rounded-2xl p-6">
+          <div className="bg-white dark:bg-surface-dark border border-slate-100 dark:border-slate-800 shadow-xl rounded-2xl p-6">
             <div className="flex items-center gap-2 mb-3">
               <div className="w-8 h-8 bg-blue-100 dark:bg-blue-900/30 rounded-lg flex items-center justify-center">
                 <span className="material-symbols-outlined text-blue-600 text-lg">payments</span>
@@ -116,14 +116,14 @@ export default function Dashboard() {
               {loading ? (
                 <div className="flex justify-center py-8"><div className="w-8 h-8 border-4 border-primary border-t-transparent rounded-full animate-spin"></div></div>
               ) : rides.length === 0 ? (
-                <div className="bg-white dark:bg-surface-dark border border-slate-200 dark:border-slate-700 rounded-2xl p-8 text-center">
+                <div className="bg-white dark:bg-surface-dark border border-slate-100 dark:border-slate-800 shadow-xl rounded-2xl p-8 text-center">
                   <span className="material-symbols-outlined text-4xl text-slate-300 mb-2">directions_car</span>
                   <p className="text-slate-500">No upcoming rides. <Link to="/search" className="text-primary font-bold">Find one!</Link></p>
                 </div>
               ) : (
                 <div className="space-y-4">
                   {rides.slice(0, 3).map(ride => (
-                    <div key={ride._id} className="bg-white dark:bg-surface-dark border border-slate-200 dark:border-slate-700 rounded-2xl p-5 flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+                    <div key={ride._id} className="bg-white dark:bg-surface-dark border border-slate-100 dark:border-slate-800 shadow-xl rounded-2xl p-5 flex flex-col sm:flex-row sm:items-center justify-between gap-4">
                       <div className="flex items-center gap-4">
                         <div className="text-center bg-primary/10 rounded-xl px-3 py-2 min-w-[56px]">
                           <p className="text-[10px] text-primary font-bold uppercase">{new Date(ride.date).toLocaleString('en-US', { month: 'short' })}</p>
@@ -147,7 +147,7 @@ export default function Dashboard() {
             {/* Recent Activity */}
             <div>
               <h2 className="text-xl font-black mb-4">Recent Activity</h2>
-              <div className="bg-white dark:bg-surface-dark border border-slate-200 dark:border-slate-700 rounded-2xl divide-y divide-slate-100 dark:divide-slate-700">
+              <div className="bg-white dark:bg-surface-dark border border-slate-100 dark:border-slate-800 shadow-xl rounded-2xl divide-y divide-slate-100 dark:divide-slate-800">
                 <div className="flex items-center justify-between p-5">
                   <div className="flex items-center gap-3">
                     <div className="w-8 h-8 bg-green-100 dark:bg-green-900/30 rounded-lg flex items-center justify-center"><span className="material-symbols-outlined text-green-600 text-lg">add</span></div>
@@ -199,7 +199,7 @@ export default function Dashboard() {
             </div>
 
             {/* Campus Hubs */}
-            <div className="bg-white dark:bg-surface-dark border border-slate-200 dark:border-slate-700 rounded-2xl p-6">
+            <div className="bg-white dark:bg-surface-dark border border-slate-100 dark:border-slate-800 shadow-xl rounded-2xl p-6">
               <h3 className="text-lg font-black mb-4">Active Campus Hubs</h3>
               <div className="bg-primary/10 dark:bg-primary/20 rounded-xl p-4 mb-4 text-center">
                 <div className="flex items-center justify-center gap-2">
@@ -214,7 +214,7 @@ export default function Dashboard() {
             </div>
 
             {/* Help */}
-            <div className="bg-white dark:bg-surface-dark border border-slate-200 dark:border-slate-700 rounded-2xl p-5 flex items-center gap-3">
+            <div className="bg-white dark:bg-surface-dark border border-slate-100 dark:border-slate-800 shadow-xl rounded-2xl p-5 flex items-center gap-3">
               <div className="w-8 h-8 bg-blue-100 dark:bg-blue-900/30 rounded-lg flex items-center justify-center">
                 <span className="material-symbols-outlined text-blue-600 text-lg">help</span>
               </div>

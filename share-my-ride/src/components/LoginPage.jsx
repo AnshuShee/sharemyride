@@ -144,7 +144,7 @@ export default function LoginPage() {
                     <span className="material-symbols-outlined text-slate-400 group-focus-within:text-primary text-sm">school</span>
                   </div>
                   <input ref={emailRef} value={loginForm.email} onChange={e => { setLoginForm(p => ({...p, email: e.target.value})); setLoginErrors(p => ({...p, email: ''})); }}
-                    className={`block w-full pl-10 pr-3 py-3 border ${loginErrors.email ? 'border-red-400' : 'border-slate-200 dark:border-slate-700'} rounded-xl bg-white dark:bg-slate-800 text-slate-900 dark:text-white placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent transition-all`}
+                    className={`block w-full pl-10 pr-3 py-3 border ${loginErrors.email ? 'border-red-400' : 'border-slate-200 dark:border-slate-700'} rounded-xl bg-slate-50 dark:bg-slate-800 text-slate-900 dark:text-white placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent transition-all`}
                     id="login-email" placeholder="yourname@university.edu" type="email" />
                 </div>
                 {loginErrors.email ? <p className="text-red-500 text-xs">{loginErrors.email}</p> : <p className="text-[10px] text-slate-400 mt-1 uppercase tracking-wider font-bold">Must be a verified .edu address</p>}
@@ -159,7 +159,7 @@ export default function LoginPage() {
                     <span className="material-symbols-outlined text-slate-400 group-focus-within:text-primary text-sm">lock</span>
                   </div>
                   <input value={loginForm.password} onChange={e => { setLoginForm(p => ({...p, password: e.target.value})); setLoginErrors(p => ({...p, password: ''})); }}
-                    className={`block w-full pl-10 pr-10 py-3 border ${loginErrors.password ? 'border-red-400' : 'border-slate-200 dark:border-slate-700'} rounded-xl bg-white dark:bg-slate-800 text-slate-900 dark:text-white placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent transition-all`}
+                    className={`block w-full pl-10 pr-10 py-3 border ${loginErrors.password ? 'border-red-400' : 'border-slate-200 dark:border-slate-700'} rounded-xl bg-slate-50 dark:bg-slate-800 text-slate-900 dark:text-white placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent transition-all`}
                     id="login-password" placeholder="••••••••" type="password" />
                 </div>
                 {loginErrors.password && <p className="text-red-500 text-xs">{loginErrors.password}</p>}
@@ -169,7 +169,7 @@ export default function LoginPage() {
                 <label className="ml-2 text-sm text-slate-600 dark:text-slate-400 font-medium cursor-pointer" htmlFor="remember-me">Remember me for 30 days</label>
               </div>
               <button type="submit" disabled={loginLoading}
-                className="w-full flex justify-center py-3.5 px-4 rounded-xl shadow-sm text-sm font-bold text-white bg-primary hover:bg-primary/90 focus:ring-2 focus:ring-offset-2 focus:ring-primary transition-all transform active:scale-[0.98] disabled:opacity-50 cursor-pointer">
+                className="w-full flex justify-center py-3.5 px-4 rounded-xl shadow-lg shadow-primary/20 text-sm font-bold text-white bg-primary hover:bg-primary/90 focus:ring-2 focus:ring-offset-2 focus:ring-primary transition-all transform active:scale-[0.98] disabled:opacity-50 cursor-pointer">
                 {loginLoading ? 'Signing in...' : 'Sign in'}
               </button>
             </form>
@@ -183,7 +183,7 @@ export default function LoginPage() {
                 <label className="text-sm font-semibold text-slate-700 dark:text-slate-300" htmlFor="signup-name">Full Name</label>
                 <div className="relative group"><div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none"><span className="material-symbols-outlined text-slate-400 group-focus-within:text-primary text-sm">person</span></div>
                 <input value={signupForm.name} onChange={e => { setSignupForm(p => ({...p, name: e.target.value})); setSignupErrors(p => ({...p, name: ''})); }}
-                  className={`block w-full pl-10 pr-3 py-3 border ${signupErrors.name ? 'border-red-400' : 'border-slate-200 dark:border-slate-700'} rounded-xl bg-white dark:bg-slate-800 text-slate-900 dark:text-white placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent`}
+                  className={`block w-full pl-10 pr-3 py-3 border ${signupErrors.name ? 'border-red-400' : 'border-slate-200 dark:border-slate-700'} rounded-xl bg-slate-50 dark:bg-slate-800 text-slate-900 dark:text-white placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent`}
                   id="signup-name" placeholder="John Doe" /></div>
                 {signupErrors.name && <p className="text-red-500 text-xs">{signupErrors.name}</p>}
               </div>
@@ -191,7 +191,7 @@ export default function LoginPage() {
                 <label className="text-sm font-semibold text-slate-700 dark:text-slate-300" htmlFor="signup-email">University Email</label>
                 <div className="relative group"><div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none"><span className="material-symbols-outlined text-slate-400 group-focus-within:text-primary text-sm">school</span></div>
                 <input value={signupForm.email} onChange={e => { setSignupForm(p => ({...p, email: e.target.value})); setSignupErrors(p => ({...p, email: ''})); }}
-                  className={`block w-full pl-10 pr-3 py-3 border ${signupErrors.email ? 'border-red-400' : 'border-slate-200 dark:border-slate-700'} rounded-xl bg-white dark:bg-slate-800 text-slate-900 dark:text-white placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent`}
+                  className={`block w-full pl-10 pr-3 py-3 border ${signupErrors.email ? 'border-red-400' : 'border-slate-200 dark:border-slate-700'} rounded-xl bg-slate-50 dark:bg-slate-800 text-slate-900 dark:text-white placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent`}
                   id="signup-email" placeholder="yourname@university.edu" type="email" /></div>
                 {signupErrors.email && <p className="text-red-500 text-xs">{signupErrors.email}</p>}
               </div>
@@ -199,7 +199,7 @@ export default function LoginPage() {
                 <label className="text-sm font-semibold text-slate-700 dark:text-slate-300" htmlFor="signup-phone">Phone Number</label>
                 <div className="relative group"><div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none"><span className="material-symbols-outlined text-slate-400 group-focus-within:text-primary text-sm">phone</span></div>
                 <input value={signupForm.phone} onChange={e => { setSignupForm(p => ({...p, phone: e.target.value})); setSignupErrors(p => ({...p, phone: ''})); }}
-                  className={`block w-full pl-10 pr-3 py-3 border ${signupErrors.phone ? 'border-red-400' : 'border-slate-200 dark:border-slate-700'} rounded-xl bg-white dark:bg-slate-800 text-slate-900 dark:text-white placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent`}
+                  className={`block w-full pl-10 pr-3 py-3 border ${signupErrors.phone ? 'border-red-400' : 'border-slate-200 dark:border-slate-700'} rounded-xl bg-slate-50 dark:bg-slate-800 text-slate-900 dark:text-white placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent`}
                   id="signup-phone" placeholder="+91 98765 43210" type="tel" /></div>
                 {signupErrors.phone && <p className="text-red-500 text-xs">{signupErrors.phone}</p>}
               </div>
@@ -207,7 +207,7 @@ export default function LoginPage() {
                 <label className="text-sm font-semibold text-slate-700 dark:text-slate-300" htmlFor="signup-password">Password</label>
                 <div className="relative group"><div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none"><span className="material-symbols-outlined text-slate-400 group-focus-within:text-primary text-sm">lock</span></div>
                 <input value={signupForm.password} onChange={e => { setSignupForm(p => ({...p, password: e.target.value})); setSignupErrors(p => ({...p, password: ''})); }}
-                  className={`block w-full pl-10 pr-3 py-3 border ${signupErrors.password ? 'border-red-400' : 'border-slate-200 dark:border-slate-700'} rounded-xl bg-white dark:bg-slate-800 text-slate-900 dark:text-white placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent`}
+                  className={`block w-full pl-10 pr-3 py-3 border ${signupErrors.password ? 'border-red-400' : 'border-slate-200 dark:border-slate-700'} rounded-xl bg-slate-50 dark:bg-slate-800 text-slate-900 dark:text-white placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent`}
                   id="signup-password" placeholder="Min. 8 characters" type="password" /></div>
                 {signupErrors.password && <p className="text-red-500 text-xs">{signupErrors.password}</p>}
               </div>
@@ -215,12 +215,12 @@ export default function LoginPage() {
                 <label className="text-sm font-semibold text-slate-700 dark:text-slate-300" htmlFor="signup-confirm-password">Confirm Password</label>
                 <div className="relative group"><div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none"><span className="material-symbols-outlined text-slate-400 group-focus-within:text-primary text-sm">lock</span></div>
                 <input value={signupForm.confirmPassword} onChange={e => { setSignupForm(p => ({...p, confirmPassword: e.target.value})); setSignupErrors(p => ({...p, confirmPassword: ''})); }}
-                  className={`block w-full pl-10 pr-3 py-3 border ${signupErrors.confirmPassword ? 'border-red-400' : 'border-slate-200 dark:border-slate-700'} rounded-xl bg-white dark:bg-slate-800 text-slate-900 dark:text-white placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent`}
+                  className={`block w-full pl-10 pr-3 py-3 border ${signupErrors.confirmPassword ? 'border-red-400' : 'border-slate-200 dark:border-slate-700'} rounded-xl bg-slate-50 dark:bg-slate-800 text-slate-900 dark:text-white placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent`}
                   id="signup-confirm-password" placeholder="Re-enter password" type="password" /></div>
                 {signupErrors.confirmPassword && <p className="text-red-500 text-xs">{signupErrors.confirmPassword}</p>}
               </div>
               <button type="submit" disabled={signupLoading}
-                className="w-full flex justify-center py-3.5 px-4 rounded-xl shadow-sm text-sm font-bold text-white bg-primary hover:bg-primary/90 focus:ring-2 focus:ring-offset-2 focus:ring-primary transition-all transform active:scale-[0.98] disabled:opacity-50 cursor-pointer">
+                className="w-full flex justify-center py-3.5 px-4 rounded-xl shadow-lg shadow-primary/20 text-sm font-bold text-white bg-primary hover:bg-primary/90 focus:ring-2 focus:ring-offset-2 focus:ring-primary transition-all transform active:scale-[0.98] disabled:opacity-50 cursor-pointer">
                 {signupLoading ? 'Creating Account...' : 'Create Account'}
               </button>
             </form>

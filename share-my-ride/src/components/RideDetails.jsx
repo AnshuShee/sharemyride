@@ -63,7 +63,7 @@ export default function RideDetails() {
   return (
     <div className="min-h-screen bg-background-light dark:bg-background-dark font-display text-slate-900 dark:text-slate-100">
       {/* Header */}
-      <header className="bg-white dark:bg-surface-dark border-b border-slate-200 dark:border-slate-700 px-6 md:px-20 py-3 flex items-center justify-between sticky top-0 z-50">
+      <header className="flex items-center justify-between whitespace-nowrap border-b border-solid border-slate-200 px-6 md:px-20 py-3 bg-background-light/80 backdrop-blur-md sticky top-0 z-50">
         <div className="flex items-center gap-3">
           <button onClick={() => navigate(-1)} className="hover:bg-slate-100 dark:hover:bg-slate-800 p-2 rounded-lg cursor-pointer">
             <span className="material-symbols-outlined">arrow_back</span>
@@ -103,7 +103,7 @@ export default function RideDetails() {
 
             {/* Driver + Vehicle */}
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-              <div className="bg-white dark:bg-surface-dark border border-slate-200 dark:border-slate-700 rounded-2xl p-5">
+              <div className="bg-white dark:bg-surface-dark shadow-xl border border-slate-100 dark:border-slate-800 rounded-2xl p-5">
                 <div className="flex items-center gap-2 mb-4"><span className="material-symbols-outlined text-primary">person</span><h3 className="font-black">Driver Profile</h3></div>
                 <div className="flex items-center gap-3 mb-3">
                   <div className="w-14 h-14 rounded-full bg-primary/20 flex items-center justify-center text-primary font-bold text-xl">{ride.driver?.name?.charAt(0)?.toUpperCase()}</div>
@@ -118,7 +118,7 @@ export default function RideDetails() {
                 </button>
               </div>
 
-              <div className="bg-white dark:bg-surface-dark border border-slate-200 dark:border-slate-700 rounded-2xl p-5">
+              <div className="bg-white dark:bg-surface-dark shadow-xl border border-slate-100 dark:border-slate-800 rounded-2xl p-5">
                 <div className="flex items-center gap-2 mb-4"><span className="material-symbols-outlined text-primary">directions_car</span><h3 className="font-black">Vehicle</h3></div>
                 <div className="bg-slate-50 dark:bg-slate-800 rounded-xl h-24 mb-3 flex items-center justify-center">
                   <span className="material-symbols-outlined text-4xl text-slate-300">directions_car</span>
@@ -132,7 +132,7 @@ export default function RideDetails() {
             </div>
 
             {/* Co-passengers */}
-            <div className="bg-white dark:bg-surface-dark border border-slate-200 dark:border-slate-700 rounded-2xl p-5">
+            <div className="bg-white dark:bg-surface-dark shadow-xl border border-slate-100 dark:border-slate-800 rounded-2xl p-5">
               <div className="flex items-center justify-between mb-4">
                 <div className="flex items-center gap-2"><span className="material-symbols-outlined text-primary">groups</span><h3 className="font-black">Co-passengers</h3></div>
                 <span className="text-sm text-slate-500">{seatsLeft} seats available</span>
@@ -158,7 +158,7 @@ export default function RideDetails() {
 
           {/* Right — Booking Card */}
           <div className="space-y-6">
-            <div className="bg-white dark:bg-surface-dark border border-slate-200 dark:border-slate-700 rounded-2xl p-6">
+            <div className="bg-white dark:bg-surface-dark shadow-xl border border-slate-100 dark:border-slate-800 rounded-2xl p-6">
               <h3 className="font-black text-lg mb-4">Cost Breakdown</h3>
               <div className="space-y-3 text-sm mb-4">
                 <div className="flex justify-between"><span className="text-slate-500">Base Fare (1 seat)</span><span className="font-bold">₹{baseFare > 0 ? baseFare.toFixed(2) : ride.cost.toFixed(2)}</span></div>
@@ -168,7 +168,7 @@ export default function RideDetails() {
                 <div className="flex justify-between text-lg"><span className="font-black">Total Amount</span><span className="font-black text-primary">₹{ride.cost.toFixed(2)}</span></div>
               </div>
               <button onClick={handleBook} disabled={booking || isDriver || isPassenger || seatsLeft === 0}
-                className="w-full bg-primary text-white py-3.5 rounded-xl font-bold text-lg hover:bg-primary/90 transition-all disabled:opacity-50 cursor-pointer mb-3">
+                className="w-full bg-primary text-white py-3.5 rounded-xl font-bold text-lg shadow-lg shadow-primary/20 hover:bg-primary/90 transition-all disabled:opacity-50 cursor-pointer mb-3">
                 {isPassenger ? 'Already Booked' : isDriver ? 'Your Ride' : booking ? 'Booking...' : 'Request to Join'}
               </button>
               <p className="text-[10px] text-slate-400 text-center">By clicking, you agree to our ride-sharing community guidelines and safety terms.</p>
@@ -185,7 +185,7 @@ export default function RideDetails() {
               </div>
             </div>
 
-            <div className="bg-white dark:bg-surface-dark border border-slate-200 dark:border-slate-700 rounded-2xl p-5">
+            <div className="bg-white dark:bg-surface-dark shadow-xl border border-slate-100 dark:border-slate-800 rounded-2xl p-5">
               <h4 className="font-bold mb-2">Need Help?</h4>
               <p className="text-sm text-slate-500 mb-3">Have questions about this ride? You can contact the driver directly or reach out to our 24/7 support team.</p>
               <button className="w-full border border-slate-200 dark:border-slate-700 py-2.5 rounded-xl font-bold text-sm hover:bg-slate-50 dark:hover:bg-slate-800 cursor-pointer">Contact Support</button>

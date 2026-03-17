@@ -75,9 +75,9 @@ export default function SearchRides() {
   return (
     <div className="min-h-screen bg-background-light dark:bg-background-dark font-display text-slate-900 dark:text-slate-100 flex flex-col">
       {/* Header */}
-      <header className="bg-white dark:bg-surface-dark border-b border-slate-200 dark:border-slate-700 px-6 md:px-10 py-3 flex items-center gap-4 sticky top-0 z-50">
+      <header className="flex items-center justify-between whitespace-nowrap border-b border-solid border-slate-200 px-6 md:px-10 py-3 bg-background-light/80 backdrop-blur-md sticky top-0 z-50 gap-4">
         <Link to="/" className="flex items-center gap-2 text-primary shrink-0">
-          <div className="w-8 h-8 bg-primary rounded-lg flex items-center justify-center text-white">
+          <div className="w-8 h-8 flex items-center justify-center bg-primary rounded-lg text-white">
             <span className="material-symbols-outlined">directions_car</span>
           </div>
           <h2 className="hidden md:block text-lg font-bold tracking-tight text-slate-900 dark:text-white">ShareMyRide</h2>
@@ -156,7 +156,7 @@ export default function SearchRides() {
           ) : (
             <div className="space-y-4">
               {paginated.map(ride => (
-                <div key={ride._id} className="bg-white dark:bg-surface-dark border border-slate-200 dark:border-slate-700 rounded-2xl p-5 flex flex-col lg:flex-row gap-4 hover:shadow-lg transition-shadow">
+                <div key={ride._id} className="bg-white dark:bg-surface-dark border border-slate-100 dark:border-slate-800 shadow-xl rounded-2xl p-5 flex flex-col lg:flex-row gap-4 hover:shadow-2xl hover:-translate-y-1 transition-all">
                   {/* Driver */}
                   <div className="flex items-center gap-3 lg:w-40 shrink-0">
                     <div className="relative">

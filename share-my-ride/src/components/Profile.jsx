@@ -61,7 +61,7 @@ export default function Profile() {
   return (
     <div className="min-h-screen bg-background-light dark:bg-background-dark font-display text-slate-900 dark:text-slate-100">
       {/* Header */}
-      <header className="bg-white dark:bg-surface-dark border-b border-slate-200 dark:border-slate-700 px-6 md:px-20 py-4 flex items-center justify-between sticky top-0 z-50">
+      <header className="flex items-center justify-between whitespace-nowrap border-b border-solid border-slate-200 px-6 md:px-20 py-4 bg-background-light/80 backdrop-blur-md sticky top-0 z-50">
         <Link to="/" className="flex items-center gap-2 text-primary">
           <div className="w-8 h-8 bg-primary rounded-lg flex items-center justify-center text-white">
             <span className="material-symbols-outlined">directions_car</span>
@@ -82,7 +82,7 @@ export default function Profile() {
         {error && <div className="mb-4 p-4 bg-red-50 dark:bg-red-900/20 border border-red-200 dark:border-red-800 rounded-xl text-red-600 text-sm">{error}</div>}
 
         {/* Profile Header */}
-        <div className="bg-white dark:bg-surface-dark border border-slate-200 dark:border-slate-700 rounded-2xl overflow-hidden mb-8">
+        <div className="bg-white dark:bg-surface-dark shadow-xl border border-slate-100 dark:border-slate-800 rounded-2xl overflow-hidden mb-8">
           <div className="h-28 bg-gradient-to-r from-primary/20 to-primary/5"></div>
           <div className="px-6 pb-6 -mt-12 relative">
             <div className="flex items-end gap-4">
@@ -107,15 +107,15 @@ export default function Profile() {
 
         {/* Stats */}
         <div className="grid grid-cols-3 gap-4 mb-8">
-          <div className="bg-white dark:bg-surface-dark border border-slate-200 dark:border-slate-700 rounded-2xl p-5 text-center">
+          <div className="bg-white dark:bg-surface-dark shadow-xl border border-slate-100 dark:border-slate-800 rounded-2xl p-5 text-center">
             <p className="text-2xl font-black text-amber-500">★ {user?.driverRating?.toFixed(1) || '4.9'}</p>
             <p className="text-sm text-slate-500">Driver Rating</p>
           </div>
-          <div className="bg-white dark:bg-surface-dark border border-slate-200 dark:border-slate-700 rounded-2xl p-5 text-center">
+          <div className="bg-white dark:bg-surface-dark shadow-xl border border-slate-100 dark:border-slate-800 rounded-2xl p-5 text-center">
             <p className="text-2xl font-black text-primary">🚌 {user?.passengerRating?.toFixed(1) || '5.0'}</p>
             <p className="text-sm text-slate-500">Passenger Rating</p>
           </div>
-          <div className="bg-white dark:bg-surface-dark border border-slate-200 dark:border-slate-700 rounded-2xl p-5 text-center">
+          <div className="bg-white dark:bg-surface-dark shadow-xl border border-slate-100 dark:border-slate-800 rounded-2xl p-5 text-center">
             <p className="text-2xl font-black">{user?.totalRides || 0}</p>
             <p className="text-sm text-slate-500">Total Rides</p>
           </div>
@@ -123,7 +123,7 @@ export default function Profile() {
 
         {/* Contact + Vehicle */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
-          <div className="bg-white dark:bg-surface-dark border border-slate-200 dark:border-slate-700 rounded-2xl p-6">
+          <div className="bg-white dark:bg-surface-dark shadow-xl border border-slate-100 dark:border-slate-800 rounded-2xl p-6">
             <div className="flex items-center gap-2 mb-5"><span className="material-symbols-outlined text-primary">contact_phone</span><h3 className="font-black">Contact Information</h3></div>
             <div className="space-y-4">
               <div>
@@ -133,12 +133,12 @@ export default function Profile() {
               <div>
                 <label className="text-[10px] uppercase tracking-wider font-bold text-primary">Phone Number</label>
                 <input value={form.phone} onChange={e => handleChange('phone', e.target.value)}
-                  className="w-full mt-1 py-2.5 px-3 rounded-xl border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-800 text-sm focus:ring-2 focus:ring-primary focus:border-transparent" />
+                  className="w-full mt-1 py-2.5 px-3 rounded-xl border border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-800 text-sm focus:ring-2 focus:ring-primary focus:border-transparent" />
               </div>
               <div>
                 <label className="text-[10px] uppercase tracking-wider font-bold text-primary">University Campus</label>
                 <select value={form.campus} onChange={e => handleChange('campus', e.target.value)}
-                  className="w-full mt-1 py-2.5 px-3 rounded-xl border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-800 text-sm cursor-pointer">
+                  className="w-full mt-1 py-2.5 px-3 rounded-xl border border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-800 text-sm cursor-pointer">
                   <option>North Campus Main</option>
                   <option>South Campus</option>
                   <option>Engineering Block</option>
@@ -148,25 +148,25 @@ export default function Profile() {
             </div>
           </div>
 
-          <div className="bg-white dark:bg-surface-dark border border-slate-200 dark:border-slate-700 rounded-2xl p-6">
+          <div className="bg-white dark:bg-surface-dark shadow-xl border border-slate-100 dark:border-slate-800 rounded-2xl p-6">
             <div className="flex items-center gap-2 mb-5"><span className="material-symbols-outlined text-primary">directions_car</span><h3 className="font-black">Vehicle Details</h3></div>
             <div className="space-y-4">
               <div className="grid grid-cols-2 gap-3">
                 <div>
                   <label className="text-[10px] uppercase tracking-wider font-bold text-slate-500">Make & Model</label>
                   <input value={form.vehicleModel} onChange={e => handleChange('vehicleModel', e.target.value)}
-                    className="w-full mt-1 py-2.5 px-3 rounded-xl border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-800 text-sm focus:ring-2 focus:ring-primary focus:border-transparent" placeholder="Toyota Prius" />
+                    className="w-full mt-1 py-2.5 px-3 rounded-xl border border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-800 text-sm focus:ring-2 focus:ring-primary focus:border-transparent" placeholder="Toyota Prius" />
                 </div>
                 <div>
                   <label className="text-[10px] uppercase tracking-wider font-bold text-slate-500">Color</label>
                   <input value={form.vehicleColor} onChange={e => handleChange('vehicleColor', e.target.value)}
-                    className="w-full mt-1 py-2.5 px-3 rounded-xl border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-800 text-sm focus:ring-2 focus:ring-primary focus:border-transparent" placeholder="Silver" />
+                    className="w-full mt-1 py-2.5 px-3 rounded-xl border border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-800 text-sm focus:ring-2 focus:ring-primary focus:border-transparent" placeholder="Silver" />
                 </div>
               </div>
               <div>
                 <label className="text-[10px] uppercase tracking-wider font-bold text-slate-500">License Plate</label>
                 <input value={form.licensePlate} onChange={e => handleChange('licensePlate', e.target.value)}
-                  className="w-full mt-1 py-2.5 px-3 rounded-xl border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-800 text-sm focus:ring-2 focus:ring-primary focus:border-transparent" placeholder="ABC-1234" />
+                  className="w-full mt-1 py-2.5 px-3 rounded-xl border border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-800 text-sm focus:ring-2 focus:ring-primary focus:border-transparent" placeholder="ABC-1234" />
               </div>
               <div className="flex items-center gap-2 p-3 bg-primary/5 border border-primary/20 rounded-xl text-sm">
                 <span className="material-symbols-outlined text-primary text-lg">info</span>
@@ -177,7 +177,7 @@ export default function Profile() {
         </div>
 
         {/* Preferences */}
-        <div className="bg-white dark:bg-surface-dark border border-slate-200 dark:border-slate-700 rounded-2xl p-6 mb-8">
+        <div className="bg-white dark:bg-surface-dark shadow-xl border border-slate-100 dark:border-slate-800 rounded-2xl p-6 mb-8">
           <div className="flex items-center gap-2 mb-5"><span className="material-symbols-outlined text-primary">tune</span><h3 className="font-black">Ride Preferences</h3></div>
           <div className="flex flex-wrap gap-3">
             {allPrefs.map(p => (
@@ -193,7 +193,7 @@ export default function Profile() {
         <div className="flex justify-end gap-3">
           <Link to="/dashboard" className="px-6 py-2.5 rounded-xl font-bold text-sm text-slate-600 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors">Discard Changes</Link>
           <button onClick={handleSave} disabled={saving}
-            className="px-8 py-2.5 bg-primary text-white rounded-xl font-bold text-sm hover:bg-primary/90 disabled:opacity-50 cursor-pointer transition-all">
+            className="px-8 py-2.5 bg-primary text-white rounded-xl font-bold text-sm shadow-lg shadow-primary/20 hover:bg-primary/90 disabled:opacity-50 cursor-pointer transition-all">
             {saving ? 'Saving...' : 'Save Changes'}
           </button>
         </div>
